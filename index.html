@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+        .folder {
+            cursor: pointer;
+        }
+        .folder:before {
+            content: '📂';
+            margin-right: 5px;
+        }
+        .file:before {
+            content: '📄';
+            margin-right: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Explorer</h1>
+    <div id="file-explorer"></div>
+    <script>
+        async function fetchFilePaths() {
+            const response = await fetch('output.txt');
+            const text = await response.text();
+            return text.split('\n').filter(line => line.trim() !== '');
+        }
+
+        function createTree(paths) {
+            const root = {};
+
+            paths.forEach(path => {
+                const parts = path.split('/');
+                let current = root;
+
+                parts.forEach((part, index) => {
+                    if (!current[part]) {
+                        current[part] = (index === parts.length - 1) ? null : {};
+                    }
+                    current = current[part];
+                });
+            });
+
+            return root;
+        }
+
+        function renderTree(node, parentElement) {
+            const ul = document.createElement('ul');
+
+            for (const key in node) {
+                const li = document.createElement('li');
+                const isFolder = node[key] !== null;
+
+                li.textContent = key;
+                li.className = isFolder ? 'folder' : 'file';
+
+                if (isFolder) {
+                    li.addEventListener('click', () => {
+                        const subTree = li.querySelector('ul');
+                        if (subTree) {
+                            subTree.classList.toggle('hidden');
+                        }
+                    });
+
+                    renderTree(node[key], li);
+                }
+
+                ul.appendChild(li);
+            }
+
+            parentElement.appendChild(ul);
+        }
+
+        async function init() {
+            const paths = await fetchFilePaths();
+            const tree = createTree(paths);
+            const fileExplorer = document.getElementById('file-explorer');
+            renderTree(tree, fileExplorer);
+        }
+
+        init();
+    </script>
+</body>
+</html>
