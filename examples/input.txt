@@ -1,0 +1,23 @@
+2024-05-01 10:00:00.101 INFO STORAGE_SET Storage set to example-storage
+2024-05-01 10:00:00.102 INFO SNAPSHOT_FILTER Parsing filter file /repository/.duplicacy/filters
+2024-05-01 10:00:00.103 INFO SNAPSHOT_FILTER Loaded 4 include/exclude pattern(s)
+2024-05-01 10:00:00.104 DEBUG PATTERN_INCLUDE data/ is included
+2024-05-01 10:00:00.105 DEBUG PATTERN_EXCLUDE data/cache/ is excluded
+2024-05-01 10:00:00.106 DEBUG PATTERN_EXCLUDE data/cache/thumbnails.db is excluded
+2024-05-01 10:00:00.107 DEBUG PATTERN_INCLUDE data/documents/ is included
+2024-05-01 10:00:00.108 DEBUG PATTERN_INCLUDE data/documents/notes.txt is included
+2024-05-01 10:00:00.109 DEBUG PATTERN_INCLUDE data/documents/report.pdf is included
+2024-05-01 10:00:00.110 DEBUG PATTERN_EXCLUDE data/documents/~$report.pdf is excluded
+2024-05-01 10:00:00.111 DEBUG PATTERN_INCLUDE data/photos/ is included
+2024-05-01 10:00:00.112 DEBUG PATTERN_INCLUDE data/photos/2024/ is included
+2024-05-01 10:00:00.113 DEBUG PATTERN_EXCLUDE data/photos/2024/.DS_Store is excluded
+2024-05-01 10:00:00.114 DEBUG PATTERN_INCLUDE data/photos/2024/img_0001.jpg is included
+2024-05-01 10:00:00.115 DEBUG PATTERN_INCLUDE data/photos/2024/img_0002.jpg is included
+2024-05-01 10:00:00.116 DEBUG PATTERN_INCLUDE data/photos/2024/img_0003.jpg is included
+2024-05-01 10:00:00.117 DEBUG PATTERN_EXCLUDE data/photos/2024/raw/ is excluded
+2024-05-01 10:00:00.118 DEBUG PATTERN_EXCLUDE data/photos/2024/raw/img_0001.dng is excluded
+2024-05-01 10:00:00.119 DEBUG PATTERN_EXCLUDE data/tmp/ is excluded
+2024-05-01 10:00:00.120 DEBUG PATTERN_EXCLUDE data/tmp/scratch.bin is excluded
+2024-05-01 10:00:00.121 INFO BACKUP_LIST Listed 9 file(s) and 5 director(ies), 0 file(s) to upload
+2024-05-01 10:00:00.122 INFO BACKUP_STATS Files: 9 total, 1,204K bytes
+2024-05-01 10:00:00.123 INFO BACKUP_STATS Total running time: 00:00:01
