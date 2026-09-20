@@ -1,3 +1,15 @@
-.idea
-venv
-*.txt
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Editors
+.idea/
+.vscode/
+.DS_Store
+
+# Tool input and output in the repository root
+/input.txt
+/output.txt
