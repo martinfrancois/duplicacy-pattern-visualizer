@@ -31,19 +31,6 @@ EXCLUDED = [
 ]
 
 
-def build_tree(paths):
-    """Same construction as createTree in index.html: nested dicts, files are None."""
-    root = {}
-    for path in paths:
-        parts = path.split("/")
-        current = root
-        for index, part in enumerate(parts):
-            if part not in current:
-                current[part] = None if index == len(parts) - 1 else {}
-            current = current[part]
-    return root
-
-
 def test_html_variant_keeps_included_and_drops_excluded_entries(tmp_path):
     shutil.copy(EXAMPLE, tmp_path / "input.txt")
 
@@ -52,10 +39,3 @@ def test_html_variant_keeps_included_and_drops_excluded_entries(tmp_path):
     lines = (tmp_path / "output.txt").read_text().splitlines()
     assert lines == INCLUDED
     assert not set(lines) & set(EXCLUDED)
-
-    tree = build_tree(lines)
-    assert tree["data"]["photos"]["2024"]["img_0001.jpg"] is None
-    assert tree["data"]["documents"]["report.pdf"] is None
-    assert "cache" not in tree["data"]
-    assert "tmp" not in tree["data"]
-    assert "raw" not in tree["data"]["photos"]["2024"]
