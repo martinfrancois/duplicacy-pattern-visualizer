@@ -29,12 +29,12 @@
 
 ### First time setup
 
-1. *(Debian or Ubuntu only)* Install the system libraries Qt loads
-   ```bash
-   sudo apt-get install -y libglib2.0-0t64 libgl1 libegl1 libxkbcommon-x11-0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libdbus-1-3 libfontconfig1
-   ```
-2. ```bash
+1. ```bash
    pip3 install -r requirements.txt
+   ```
+2. If needed on macOS:
+   ```bash
+   brew install pyqt
    ```
 
 ### Instructions
