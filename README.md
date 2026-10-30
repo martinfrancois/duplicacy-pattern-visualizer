@@ -37,6 +37,22 @@
    brew install pyqt
    ```
 
+On Linux, the Qt UI also requires native GLib libraries. If importing PyQt6 fails
+with `ImportError: libgthread-2.0.so.0: cannot open shared object file`, install the
+package that provides that library using your distribution's package manager.
+For example, openSUSE provides it in `libgthread-2_0-0`; other distributions use
+different package names. Pip installs the Python dependencies but does not install
+this system library. The HTML processing script does not need Qt or GLib.
+
+Check the UI dependencies without opening a window:
+
+```bash
+QT_QPA_PLATFORM=offscreen python3 -c 'from PyQt6.QtWidgets import QApplication; app = QApplication([])'
+```
+
+This checks Qt initialization only. Native file dialogs and desktop integration
+still need a graphical session.
+
 ### Instructions
 
 1. Run a Duplicacy task with the following options: `Options: [-log -d backup -storage <storage-name> -threads 1 -enum-only -stats]`\
