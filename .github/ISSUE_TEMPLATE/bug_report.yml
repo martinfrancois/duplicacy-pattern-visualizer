@@ -1,0 +1,31 @@
+name: Bug report
+description: Report something that doesn't work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Leave out private paths, file names and personal data, also from Duplicacy logs and screenshots. A short invented log like `examples/input.txt` is the easiest way to show a problem.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which variant you ran (`duplicacy_pattern_visualizer_html.py` or `duplicacy_pattern_visualizer_ui.py`), the Duplicacy options, and a few lines of the log that show the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Commit you ran, Python and Duplicacy versions, operating system, and anything else that matters here.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output or logs
+      render: text
